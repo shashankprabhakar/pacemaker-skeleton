@@ -2,19 +2,37 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="12a77638-0714-4ed1-ab5e-e7c9ab14263b" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/controllers/PacemakerRestService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/controllers/RestMain.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/models/Fixtures.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/META-INF/pacemaker-skeleton.kotlin_module" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/models/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/models/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/models/User.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/models/User.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controllers/Main.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controllers/PacemakerAPI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controllers/PacemakerAPI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controllers/PacemakerConsoleService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controllers/PacemakerRestService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controllers/PacemakerRestService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controllers/RestMain.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controllers/RestMain.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/parsers/ASCIITableParser.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/parsers/Parser.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/controllers/Main.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/controllers/PacemakerAPI.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/controllers/PacemakerAPI.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/controllers/PacemakerConsoleService.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/controllers/PacemakerRestService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/controllers/PacemakerRestService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/controllers/RestMain.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/controllers/RestMain.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/parsers/ASCIITableParser.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/parsers/Parser.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/pacemaker-skeleton-1.0-SNAPSHOT.jar" beforeDir="false" afterPath="$PROJECT_DIR$/target/pacemaker-skeleton-1.0-SNAPSHOT.jar" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="CoverageViewManager">
+    <option name="myElementSize" value="252" />
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -42,6 +60,11 @@
     <property name="project.structure.side.proportion" value="0.0" />
     <property name="settings.editor.selected.configurable" value="configurable.group.appearance" />
   </component>
+  <component name="RecentsManager">
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="models" />
+    </key>
+  </component>
   <component name="RunDashboard">
     <option name="ruleStates">
       <list>
@@ -54,10 +77,10 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Application.RestMain">
-    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="JUnit.controllers in pacemaker-skeleton-client">
+    <configuration name="Main (1)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="controllers.Main" />
-      <module name="pacemaker-skeleton" />
+      <module name="pacemaker-skeleton-client" />
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="controllers.*" />
@@ -81,10 +104,58 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="ActivityTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="pacemaker-skeleton-client" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="controllers.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="controllers" />
+      <option name="MAIN_CLASS_NAME" value="controllers.ActivityTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="UserTest.testCreateUsers" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="pacemaker-skeleton-client" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="controllers.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="controllers" />
+      <option name="MAIN_CLASS_NAME" value="controllers.UserTest" />
+      <option name="METHOD_NAME" value="testCreateUsers" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="controllers in pacemaker-skeleton-client" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="pacemaker-skeleton-client" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="controllers.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="controllers" />
+      <option name="TEST_OBJECT" value="package" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.controllers in pacemaker-skeleton-client" />
         <item itemvalue="Application.RestMain" />
-        <item itemvalue="Application.Main" />
+        <item itemvalue="Application.Main (1)" />
+        <item itemvalue="JUnit.ActivityTest" />
+        <item itemvalue="JUnit.UserTest.testCreateUsers" />
       </list>
     </recent_temporary>
   </component>
@@ -106,10 +177,23 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
           </value>
         </entry>
       </map>
     </option>
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/pacemaker_skeleton$UserTest.ic" NAME="UserTest Coverage Results" MODIFIED="1565821880958" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>controllers.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/pacemaker_skeleton$UserTest_testCreateUsers.ic" NAME="UserTest.testCreateUsers Coverage Results" MODIFIED="1565821933494" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>controllers.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/pacemaker_skeleton$ActivityTest.ic" NAME="ActivityTest Coverage Results" MODIFIED="1565822151158" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>controllers.*</FILTER>
+    </SUITE>
   </component>
 </project>

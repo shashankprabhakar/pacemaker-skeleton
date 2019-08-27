@@ -48,7 +48,7 @@ public class PacemakerRestService {
         }
     }
     public void getActivity(Context ctx) {
-        String id = ctx.pathParam("activityId");
+        String id = ctx.pathParam("activityid");
         Activity activity = pacemaker.getActivity(id);
         if (activity != null) {
             ctx.json(activity);
@@ -77,4 +77,20 @@ public class PacemakerRestService {
             ctx.status(404);
         }
     }
+
+    public void deleteUser(Context ctx) {
+        String id = ctx.pathParam("id");
+        ctx.json(pacemaker.deleteUser(id));
+    }
+
+    public void deleteUsers(Context ctx) {
+        pacemaker.deleteUsers();
+        ctx.json(204);
+    }
+    public void deleteActivities(Context ctx) {
+        String id = ctx.pathParam("id");
+        pacemaker.deleteActivities(id);
+        ctx.json(204);
+    }
+
 }
