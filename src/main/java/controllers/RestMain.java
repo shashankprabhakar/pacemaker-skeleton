@@ -24,16 +24,14 @@ public class RestMain {
         app.get("/users/:id", ctx -> {
             service.listUser(ctx);
         });
-        app.get("/users/:id/activities", ctx -> {
-            service.getActivities(ctx);
+        app.get("/users/:id/activities/:activityid", ctx -> {
+            service.getActivity(ctx);
         });
 
         app.post("/users/:id/activities", ctx -> {
             service.createActivity(ctx);
         });
-        app.get("/users/:id/activities/:activityid", ctx -> {
-            service.getActivity(ctx);
-        });
+
         app.get("/users/:id/activities/:activityid/locations", ctx -> {
             service.getActivityLocations(ctx);
         });

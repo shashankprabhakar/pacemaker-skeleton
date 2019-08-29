@@ -21,10 +21,18 @@ public class PacemakerRestService {
                 .createUser(user.firstname, user.lastname, user.email, user.password);
         ctx.json(newUser);
     }
+
+    public void listUsers(Context ctx) {
+        // serialize object and set as result
+        ctx.json(pacemaker.getUsers());
+        System.out.println("list users requested");
+    }
+
     public void listUser(Context ctx) {
         String id = ctx.pathParam("id");
         ctx.json(pacemaker.getUser(id));
     }
+
     public void getActivities(Context ctx) {
         String id = ctx.pathParam("id");
         User user = pacemaker.getUser(id);
@@ -47,6 +55,7 @@ public class PacemakerRestService {
             ctx.status(404);
         }
     }
+
     public void getActivity(Context ctx) {
         String id = ctx.pathParam("activityid");
         Activity activity = pacemaker.getActivity(id);
@@ -56,41 +65,46 @@ public class PacemakerRestService {
             ctx.status(404);
         }
     }
-    public void getActivityLocations(Context ctx) {
-        String id = ctx.pathParam("activityid");
-        Activity activity = pacemaker.getActivity(id);
-        if (activity != null) {
-            ctx.json(activity.route);
-        } else {
-            ctx.status(404);
+
+
+
+        public void getActivityLocations (Context ctx){
+            String id = ctx.pathParam("activityid");
+            Activity activity = pacemaker.getActivity(id);
+            if (activity != null) {
+                ctx.json(activity.route);
+            } else {
+                ctx.status(404);
+            }
         }
-    }
 
-    public void addLocation(Context ctx) {
-        String id = ctx.pathParam("activityid");
-        Activity activity = pacemaker.getActivity(id);
-        if (activity != null) {
-            Location location = ctx.bodyAsClass(Location.class);
-            activity.route.add(location);
-            ctx.json(location);
-        } else {
-            ctx.status(404);
+        public void addLocation (Context ctx){
+            String id = ctx.pathParam("activityid");
+            Activity activity = pacemaker.getActivity(id);
+            if (activity != null) {
+                Location location = ctx.bodyAsClass(Location.class);
+                activity.route.add(location);
+                ctx.json(location);
+            } else {
+                ctx.status(404);
+            }
         }
-    }
 
-    public void deleteUser(Context ctx) {
-        String id = ctx.pathParam("id");
-        ctx.json(pacemaker.deleteUser(id));
-    }
+        public void deleteUser (Context ctx){
+            String id = ctx.pathParam("id");
+            ctx.json(pacemaker.deleteUser(id));
+        }
 
-    public void deleteUsers(Context ctx) {
-        pacemaker.deleteUsers();
-        ctx.json(204);
-    }
-    public void deleteActivities(Context ctx) {
-        String id = ctx.pathParam("id");
-        pacemaker.deleteActivities(id);
-        ctx.json(204);
-    }
+        public void deleteUsers (Context ctx){
+            pacemaker.deleteUsers();
+            ctx.json(204);
+        }
+        public void deleteActivities (Context ctx){
+            String id = ctx.pathParam("id");
+            pacemaker.deleteActivities(id);
+            ctx.json(204);
+        }
 
 }
+
+
