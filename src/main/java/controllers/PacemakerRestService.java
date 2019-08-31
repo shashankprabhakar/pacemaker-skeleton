@@ -2,6 +2,7 @@ package controllers;
 import io.javalin.Context;
 import models.Activity;
 import models.Location;
+import models.Message;
 import models.User;
 
 import static models.Fixtures.users;
@@ -23,7 +24,6 @@ public class PacemakerRestService {
     }
 
     public void listUsers(Context ctx) {
-        // serialize object and set as result
         ctx.json(pacemaker.getUsers());
         System.out.println("list users requested");
     }
@@ -104,7 +104,69 @@ public class PacemakerRestService {
             pacemaker.deleteActivities(id);
             ctx.json(204);
         }
+    public void follow(Context ctx) {
+        String id = ctx.pathParam("id");
+        String email = ctx.bodyAsClass(String.class);
+        User user = pacemaker.getUserByEmail(email);
+        if (user != null) {
+            pacemaker.follow(id, email);
+            ctx.json("Now you follow :" +user.firstname);
+        } else {
+            ctx.status(404);
+        }
+    }
 
+    public void listFriends(Context ctx) {
+        String id = ctx.pathParam("id");
+        User user = pacemaker.getUser(id);
+        if (user != null) {
+            ctx.json(pacemaker.listFriends(id));
+        } else {
+            ctx.status(404);
+        }
+    }
+    public void unfollowFriend(Context ctx) {
+        String id = ctx.pathParam("id");
+        String email = ctx.bodyAsClass(String.class);
+        User user = pacemaker.getUserByEmail(email);
+        if (user != null) {
+            pacemaker.unfollowFriend(id, email);
+            ctx.json("Now you don't follow :" +user.firstname);
+        } else {
+            ctx.status(404);
+        }
+    }
+    public void messageFriend(Context ctx) {
+        String id = ctx.pathParam("id");
+        User user = pacemaker.getUser(id);
+        if (user != null) {
+            Message message = ctx.bodyAsClass(Message.class);
+            pacemaker.messageFriend(id, message);
+            ctx.json("message successfully sent..");
+        } else {
+            ctx.status(404);
+        }
+    }
+    public void listMessages(Context ctx) {
+        String id = ctx.pathParam("id");
+        User user = pacemaker.getUser(id);
+        if (user != null) {
+            ctx.json(user.inbox);
+        } else {
+            ctx.status(404);
+        }
+    }
+    public void messageAllFriends(Context ctx) {
+        String id = ctx.pathParam("id");
+        User user = pacemaker.getUser(id);
+        if (user != null) {
+            String message = ctx.bodyAsClass(String.class);
+            pacemaker.messageAllFriends(id, message);
+            ctx.json("message sent to everyone..");
+        } else {
+            ctx.status(404);
+        }
+    }
 }
 
 

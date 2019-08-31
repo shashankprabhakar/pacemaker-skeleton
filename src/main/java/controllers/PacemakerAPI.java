@@ -1,15 +1,13 @@
 package controllers;
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
 
 import com.google.common.base.Optional;
-
 import models.Activity;
 import models.Location;
+import models.Message;
 import models.User;
+
+import java.util.*;
+import java.util.stream.Collectors;
 
 
 public class PacemakerAPI {
@@ -17,6 +15,8 @@ public class PacemakerAPI {
     private Map<String, User> emailIndex = new HashMap<>();
     private Map<String, User> userIndex = new HashMap<>();
     private Map<String, Activity> activitiesIndex = new HashMap<>();
+    private Map<String, List<User>> friendsIndex = new HashMap<>();
+
 
     public PacemakerAPI() {
     }
@@ -79,10 +79,8 @@ public class PacemakerAPI {
     }
 
     public void addLocation(String id, double latitude, double longitude) {
-        Optional<Activity> activity = Optional.fromNullable(activitiesIndex.get(id));
-        if (activity.isPresent()) {
-            activity.get().route.add(new Location(latitude, longitude));
-        }
+        java.util.Optional<Activity> activity = java.util.Optional.ofNullable(activitiesIndex.get(id));
+        activity.ifPresent(value -> value.route.add(new Location(latitude, longitude)));
     }
 
     public User getUserByEmail(String email) {
@@ -99,10 +97,52 @@ public class PacemakerAPI {
     }
 
     public void deleteActivities(String id) {
-        Optional<User> user = Optional.fromNullable(userIndex.get(id));
+        java.util.Optional<User> user = java.util.Optional.ofNullable(userIndex.get(id));
         if (user.isPresent()) {
             user.get().activities.values().forEach(activity -> activitiesIndex.remove(activity.getId()));
             user.get().activities.clear();
         }
     }
-}
+
+        public void follow(String id, String email) {
+            Optional<User> user = Optional.fromNullable(userIndex.get(id));
+            if (user.isPresent()) {
+                friendsIndex.get(id).add(emailIndex.get(email));
+            }
+        }
+
+        public List<String> listFriends(String id) {
+            List<String> friends =null;
+            Optional<User> user = Optional.fromNullable(userIndex.get(id));
+            if (user.isPresent()) {
+                friends = friendsIndex.get(id).stream()
+                        .map(friend -> friend.firstname + "--" +friend.email)
+                        .collect(Collectors.toList());
+            }
+            return friends;
+        }
+        public void unfollowFriend(String id, String email) {
+            Optional<User> user = Optional.fromNullable(userIndex.get(id));
+            if (user.isPresent()) {
+                friendsIndex.get(id).remove(getUserByEmail(email));
+            }
+        }
+        public void messageFriend(String id, Message message) {
+            Optional<User> user = Optional.fromNullable(emailIndex.get(message.receiver));
+            if (user.isPresent()) {
+                user.get().inbox.add(message);
+            }
+        }
+        public void messageAllFriends(String id, String message) {
+            Optional<User> user = Optional.fromNullable(userIndex.get(id));
+            String senderEmail = user.get().email;
+            if (user.isPresent()) {
+                friendsIndex.get(id)
+                        .forEach(friend -> userIndex.get(friend.id)
+                                .inbox.add(new Message(friend.email, senderEmail, message))
+                        );
+            }
+        }
+
+    }
+

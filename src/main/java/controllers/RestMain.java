@@ -52,5 +52,30 @@ public class RestMain {
             service.deleteActivities(ctx);
         });
 
+        app.post("/users/:id/friends", ctx -> {
+            service.follow(ctx);
+        });
+
+        app.get("/users/:id/friends", ctx -> {
+            service.listFriends(ctx);
+        });
+
+        app.put("/users/:id/friends", ctx -> {
+            service.unfollowFriend(ctx);
+        });
+
+        app.put("/users/:id/message", ctx -> {
+            service.messageFriend(ctx);
+        });
+
+        app.get("/users/:id/message", ctx -> {
+            service.listMessages(ctx);
+        });
+
+        app.post("/users/:id/message", ctx -> {
+            service.messageAllFriends(ctx);
+        });
+
+
     }
 }

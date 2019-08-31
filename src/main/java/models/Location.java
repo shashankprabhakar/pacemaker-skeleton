@@ -15,18 +15,6 @@ public class Location implements Serializable {
     public Location() {
     }
 
-    public String getId() {
-        return id;
-    }
-
-    public double getLongitude() {
-        return longitude;
-    }
-
-    public double getLatitude() {
-        return latitude;
-    }
-
     public Location(double latitude, double longitude) {
         this.id = UUID.randomUUID().toString();
         this.latitude = latitude;
@@ -47,7 +35,7 @@ public class Location implements Serializable {
 
     @Override
     public String toString() {
-        return toStringHelper(this).addValue(id)
+        return toStringHelper(this)
                 .addValue(latitude)
                 .addValue(longitude)
                 .toString();
